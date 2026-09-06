@@ -15,14 +15,40 @@ const task = {
     },
 
 
+
     //funciton to get all students
-    getAllStudents : (callback) => { 
+    getAllTask : (callback) => { 
 
         //Create the sql query
         const sql = "SELECT * FROM task_tb";
 
         //send the SQL query to MySql
         db.query(sql,callback);
+    },
+
+    //getTaskByID
+    getTaskByID : (id, callback) => {
+
+        const sql = "SELECT * FROM task_tb WHERE id = ?";
+
+        db.query(sql, [id], callback);
+    },
+
+    //DeleteByID
+    deleteTask :(id, callback) => {
+
+        const sql = "DELETE FROM task_tb WHERE id = ?";
+
+        db.qurey(sql, [id], callback);
+
+    },
+
+    //UpdateTask
+    updateTask: (id, task, callback) => {
+
+        const sql = "UPDATE task SET Title = ?, Completed= ? WHERE id = ?";
+
+        db.query(sql, [task.title, task.completed, id], callback);
     }
 
 };
