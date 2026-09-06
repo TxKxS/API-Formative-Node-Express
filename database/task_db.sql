@@ -1,5 +1,5 @@
 -- Create the database
-CREATE DATABASE IF NOT EXISTS task_tb;
+CREATE DATABASE IF NOT EXISTS task_db;
 
 -- Select the database
 USE task_db;
@@ -10,11 +10,11 @@ DROP TABLE IF EXISTS task_tb;
 -- Create the table
 CREATE TABLE task_tb (
 
-    id INT AUTO_INCREMENT PRIMARY KEY;
+    id INT AUTO_INCREMENT PRIMARY KEY,
 
-    title VARCHAR(100) NOT NULL;
+    title VARCHAR(100) NOT NULL,
 
-    is_completed VARCHAR(100) NOT NULL;
+    is_completed VARCHAR(100) NOT NULL
 
 
 );
@@ -22,6 +22,7 @@ CREATE TABLE task_tb (
 
 -- Adding sample data 
 INSERT INTO task_tb (Title, is_completed)
-VALUES ( ("Wake Up", TRUE), ("Eat Breakfast", FALSE));
-
-    
+VALUES 
+    ("Wake Up", TRUE), 
+    ("Eat Breakfast", FALSE)
+;
