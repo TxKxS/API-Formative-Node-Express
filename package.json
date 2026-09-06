@@ -1,0 +1,20 @@
+{
+  "name": "formative-api",
+  "version": "1.0.0",
+  "description": "Web Dev formative for API ",
+  "homepage": "https://github.com/TxKxS/API-Formative-Node-Express#readme",
+  "bugs": {
+    "url": "https://github.com/TxKxS/API-Formative-Node-Express/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TxKxS/API-Formative-Node-Express.git"
+  },
+  "license": "ISC",
+  "author": "TKS",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  }
+}
