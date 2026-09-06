@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+github.com/TxKxS/API-Formative-Node-Express.git"
+    "url": "git+https://github.com/TxKxS/API-Formative-Node-Express.git"
   },
   "license": "ISC",
   "author": "",
