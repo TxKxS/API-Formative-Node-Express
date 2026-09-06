@@ -14,7 +14,7 @@ CREATE TABLE task_tb (
 
     title VARCHAR(100) NOT NULL,
 
-    is_completed VARCHAR(100) NOT NULL
+    is_completed BOOLEAN NOT NULL
 
 
 );

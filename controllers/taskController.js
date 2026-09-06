@@ -5,14 +5,14 @@ const task = require("../models/task_models");
 const taskController = {
 
 
-    createTask: (res,req) => {
+    createTask: (req, res) => {
 
         //grabbing title and is_completed from the body
         const title = req.body.title;
         const is_completed = req.body.is_completed;
 
         //checking if empty
-        if (!title || is_completed == null) {
+        if (!title || is_completed === true || is_completed === false) {
             //Return error message if empty
             return res.status(400).json({message: "Title and completion state are required"});
         };
@@ -25,7 +25,7 @@ const taskController = {
         };
 
         //saving the object in database
-        task.createTask(task, (error,results) => {
+        task.createTask(task, (error, results) => {
 
             //error checking
             if(error) {
@@ -46,7 +46,7 @@ const taskController = {
     },
 
     //controller to get all task
-    getAllTasks: (res, req) => {
+    getAllTasks: (req, res) => {
 
         task.getAllTasks((error, results) => {
 
@@ -56,12 +56,12 @@ const taskController = {
             }
 
             //sending all data as json
-            res.status(200).json(results);
+            return res.status(200).json(results);
 
         });
     },
 
-    getTaskById: (res,req) => {
+    getTaskById: (req, res) => {
 
         const taskId = req.params.id;
 
@@ -91,7 +91,7 @@ const taskController = {
        
     },
 
-    updateTask: (res, req) => {
+    updateTask: (req, res) => {
 
         //grabbing title and is_completed from the body
         const id = req.params.id;
@@ -137,7 +137,7 @@ const taskController = {
 
     },
 
-    deleteTask: (res,req) => {
+    deleteTask: (req, res) => {
 
 
         const taskId = req.params.id;
