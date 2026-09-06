@@ -53,5 +53,5 @@ const task = {
 
 };
 
-//export task object
+//export task object which will be used by controller
 modules.exports = task;
