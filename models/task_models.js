@@ -8,10 +8,10 @@ const task = {
     createTask: (task, callback) => {
 
         //prepare the query
-        const sql = "INSERT INTO task_tb (title, completed) VALUES (?, ?)";
+        const sql = "INSERT INTO task_tb (title, is_completed) VALUES (?, ?)";
 
         //Execute the query
-        db.query(sql, [task.title, task.completed], callback);
+        db.query(sql, [task.title, task.is_completed], callback);
     },
 
 
@@ -46,9 +46,9 @@ const task = {
     //UpdateTask
     updateTask: (id, task, callback) => {
 
-        const sql = "UPDATE task SET Title = ?, Completed= ? WHERE id = ?";
+        const sql = "UPDATE task SET Title = ?, is_completed = ? WHERE id = ?";
 
-        db.query(sql, [task.title, task.completed, id], callback);
+        db.query(sql, [task.title, task.is_completed, id], callback);
     }
 
 };
