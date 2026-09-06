@@ -27,7 +27,7 @@ const task = {
     },
 
     //getTaskByID
-    getTaskByID : (id, callback) => {
+    getTaskById : (id, callback) => {
 
         const sql = "SELECT * FROM task_tb WHERE id = ?";
 

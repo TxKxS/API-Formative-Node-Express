@@ -95,23 +95,23 @@ const taskController = {
 
         //grabbing title and is_completed from the body
         const id = req.params.id;
-        const title = req.body.title;
-        const is_completed = req.body.is_completed;
+        const newTitle = req.body.title;
+        const new_is_completed = req.body.is_completed;
 
         //checking if empty
-        if (!title || is_completed == null) {
+        if (!newTitle || new_is_completed == null) {
             //Return error message if empty
             return res.status(400).json({message: "ID,  Title and completion state are required"});
         };
 
 
         //creating task object
-        const task = {
-            title: title,
-            is_completed: is_completed
+        const newTask = {
+            title: newTitle,
+            is_completed: new_is_completed
         };
 
-        task.updateTask(id, task, (error, results) => {
+        task.updateTask(id, newTask, (error, results) => {
 
             //Error handling
             if (!error) {
