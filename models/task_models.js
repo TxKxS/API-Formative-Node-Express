@@ -1,5 +1,5 @@
 //Import the database connection
-const db = require("../config/database");
+const db = require("../db/database");
 
 //create object which will constain databse function
 const task = {
@@ -54,4 +54,4 @@ const task = {
 };
 
 //export task object which will be used by controller
-modules.exports = task;
+module.exports = task;

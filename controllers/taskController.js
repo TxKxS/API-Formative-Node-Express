@@ -164,14 +164,12 @@ const taskController = {
                 });
             };
 
-
         });
 
     }
 
 
-
 };
 
 //exports controller, will be used by routes
-model.exports = taskController;
+module.exports = taskController;

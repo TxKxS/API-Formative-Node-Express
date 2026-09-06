@@ -11,16 +11,16 @@ const taskController = require("../controllers/taskController");
 router.post("/tasks", taskController.createTask);
 
 //GET /api/tasks fot all tasks
-router.get("/tasks", taskController.getAllTask);
+router.get("/tasks", taskController.getAllTasks);
 
 //GET /api/tasks/:id to get 1 specific task
-router.get("/tasks/:id", taskController.getTaskByID);
+router.get("/tasks/:id", taskController.getTaskById);
 
 //PUT /api/tasks/:id to update 1 task record
 router.put("/tasks/:id", taskController.updateTask);
 
 //DELETE /api/tasks/:id to delete 1 task record
-router.delete("/tasks/:id", taskController.delete);
+router.delete("/tasks/:id", taskController.deleteTask);
 
 
 //Exports router which will be used by app.js
