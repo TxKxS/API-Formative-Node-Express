@@ -59,6 +59,31 @@ const taskController = {
             res.status(200).json(results);
 
         });
+    },
+
+    getTaskById: (res,req) => {
+
+        const taskId = req.params.id;
+
+        //if there is no error 
+        if (!error) {
+
+            //if no results found, no result sent
+            if (results.length === 0) {
+                return res.status(404).json({
+                    message: "Task not found"
+                });
+            } else {
+                //return first task found 
+                return res.status(200).json(results[0]);
+            }
+
+        } else {
+            return res.status(500).json({
+                message: "Database error"
+            });
+        };
+
     }
 
 
