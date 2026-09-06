@@ -21,7 +21,7 @@ CREATE TABLE task_tb (
 
 
 -- Adding sample data 
-INSERT INTO task_tb (Title, is_completed)
+INSERT INTO task_tb (title, is_completed)
 VALUES 
     ("Wake Up", TRUE), 
     ("Eat Breakfast", FALSE)

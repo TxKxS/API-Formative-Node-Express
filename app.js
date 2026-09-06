@@ -14,7 +14,7 @@ app.use(express.json());
 app.use("/api", taskRoutes);
 
 //create simple home route
-app.get("/", (res,req) => {
+app.get("/", (req, res) => {
     //Message to check if it is running
     res.send("Task API is running");
 });

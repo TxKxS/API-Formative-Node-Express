@@ -12,7 +12,7 @@ const taskController = {
         const is_completed = req.body.is_completed;
 
         //checking if empty
-        if (!title || is_completed === true || is_completed === false) {
+        if (!title || is_completed == null) {
             //Return error message if empty
             return res.status(400).json({message: "Title and completion state are required"});
         };
@@ -30,7 +30,7 @@ const taskController = {
             //error checking
             if(error) {
                 return res.status(500).json({
-                    message: "Databse error"
+                    message: "Database error"
                 });
             }
 
@@ -142,7 +142,7 @@ const taskController = {
 
         const taskId = req.params.id;
 
-        task.deleteTask(id, (error, results) => {
+        task.deleteTask(taskId, (error, results) => {
 
             if (!error) {
                 //if no error, check if row deleted
@@ -154,13 +154,13 @@ const taskController = {
                 } else {
                     //then operatio was a success
                     return res.status(200).json({
-                        message: "Task deleted successfullly"
+                        message: "Task deleted successfully"
                     });
                 };             
 
             } else {
                 return res.status(500).json({
-                    message: "No task found"
+                    message: "Database error"
                 });
             };
 

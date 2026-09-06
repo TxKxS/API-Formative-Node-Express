@@ -46,7 +46,7 @@ const task = {
     //UpdateTask
     updateTask: (id, task, callback) => {
 
-        const sql = "UPDATE task_tb SET Title = ?, is_completed = ? WHERE id = ?";
+        const sql = "UPDATE task_tb SET title = ?, is_completed = ? WHERE id = ?";
 
         db.query(sql, [task.title, task.is_completed, id], callback);
     }
