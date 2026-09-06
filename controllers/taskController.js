@@ -93,10 +93,81 @@ const taskController = {
 
     updateTask: (res, req) => {
 
-        
+        //grabbing title and is_completed from the body
+        const id = req.params.id;
+        const title = req.body.title;
+        const is_completed = req.body.is_completed;
+
+        //checking if empty
+        if (!title || is_completed == null) {
+            //Return error message if empty
+            return res.status(400).json({message: "ID,  Title and completion state are required"});
+        };
+
+
+        //creating task object
+        const task = {
+            title: title,
+            is_completed: is_completed
+        };
+
+        task.updateTask(id, task, (error, results) => {
+
+            //Error handling
+            if (!error) {
+                //no errors but no rows affected
+                if (results.affectedRows === 0) {
+                    return res.status(404).json({
+                        message: "Task not found"
+                    })
+                } else {
+                    // no erros and 1 row changed, success
+                    return res.status(200).json({
+                        message: "Task updated successfully"
+                    })
+                };
+
+            } else {
+                //error present
+                return res.status(500).json({
+                    message: "Database error"
+                })
+            };
+        });
+
+    },
+
+    deleteTask: (res,req) => {
+
+
+        const taskId = req.params.id;
+
+        task.deleteTask(id, (error, results) => {
+
+            if (!error) {
+                //if no error, check if row deleted
+                if (results.affectedRows === 0) {
+                    //if no rows were affected, no task was deleted
+                    return res.status(404).json({
+                        message: "Task not found"
+                    });
+                } else {
+                    //then operatio was a success
+                    return res.status(200).json({
+                        message: "Task deleted successfullly"
+                    });
+                };             
+
+            } else {
+                return res.status(500).json({
+                    message: "No task found"
+                });
+            };
+
+
+        });
 
     }
-
 
 
 
